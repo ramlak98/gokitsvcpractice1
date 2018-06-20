@@ -11,6 +11,8 @@ import (
 	"encoding/json"
 )
 
+// Initial version
+
 type StringService interface {
 	Uppercase(ctx context.Context, string2 string) (string, error)
 	Count(ctx context.Context, string2 string) int
@@ -110,6 +112,6 @@ func decodeCountRequest(_ context.Context, r *http.Request) (interface{}, error)
 	return request, nil
 }
 
-func encodeResponse(ctx context.Context, w http.ResponseWriter, response interface{}) error {
+func encodeResponse(_ context.Context, w http.ResponseWriter, response interface{}) error {
 	return json.NewEncoder(w).Encode(response)
 }
